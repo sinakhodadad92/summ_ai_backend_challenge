@@ -12,8 +12,6 @@ echo "Collectstatics ... "
 python manage.py collectstatic --noinput
 echo "done"
 echo "Creating admin user ... "
-python manage.py makemigrations --noinput
-python manage.py migrate --noinput
 if [ "$DJANGO_SUPERUSER_USERNAME" ]; then
     echo "Creating superuser..."
     python manage.py shell -c "

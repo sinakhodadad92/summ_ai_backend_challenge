@@ -138,7 +138,7 @@ This project is a Django-based backend API that provides text translation servic
    pytest
    ```
 
-2. **Running Tests with Docker:**
+2. **Running Tests with Docker (After running Build and Starting Docker container):**
 
    After deploying the application with Docker, you can run the unit tests using `pytest` to ensure everything is working as expected:
 
