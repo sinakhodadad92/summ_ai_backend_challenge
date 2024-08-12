@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMM AI Backend API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to SUMM AI Backend API</h1>
+    <p>This is the documentation for the SUMM AI Backend API project. Below you will find information on how to use the available APIs.</p>
+
+    <h2>Available Endpoints</h2>
+
+    <h3>1. User Registration</h3>
+    <p><strong>Endpoint:</strong> <code>/api/register/</code></p>
+    <p><strong>Method:</strong> POST</p>
+    <p><strong>Request Body:</strong></p>
+    <pre>
+{
+    "username": "newuser",
+    "password": "newpassword",
+    "email": "newuser@example.com"
+}
+    </pre>
+    <p><strong>Response:</strong> User details on successful registration.</p>
+
+    <h3>2. User Login</h3>
+    <p><strong>Endpoint:</strong> <code>/api/login/</code></p>
+    <p><strong>Method:</strong> POST</p>
+    <p><strong>Request Body:</strong></p>
+    <pre>
+{
+    "username": "yourusername",
+    "password": "yourpassword"
+}
+    </pre>
+    <p><strong>Response:</strong> JSON Web Token (JWT) for authentication.</p>
+
+    <h3>3. Translation API</h3>
+    <p><strong>Endpoint:</strong> <code>/api/translate/</code></p>
+    <p><strong>Method:</strong> POST</p>
+    <p><strong>Request Body:</strong></p>
+    <pre>
+{
+    "original_text": "Hallo Welt!",
+    "content_type": "plain",
+    "dest_language": "en"
+}
+    </pre>
+    <p><strong>Response:</strong> Translated text.</p>
+
+    <h3>4. Fetch User's Translations</h3>
+    <p><strong>Endpoint:</strong> <code>/api/translations/</code></p>
+    <p><strong>Method:</strong> GET</p>
+    <p><strong>Response:</strong> List of translations associated with the authenticated user.</p>
+
+    <h3>5. Admin: Fetch Translations by User</h3>
+    <p><strong>Endpoint:</strong> <code>/api/admin/translations/&lt;user_id&gt;/</code></p>
+    <p><strong>Method:</strong> GET</p>
+    <p><strong>Response:</strong> List of translations associated with the specified user ID.</p>
+
+    <h3>6. Admin: List All Users</h3>
+    <p><strong>Endpoint:</strong> <code>/api/admin/users/</code></p>
+    <p><strong>Method:</strong> GET</p>
+    <p><strong>Response:</strong> List of all registered users.</p>
+
+    <h2>Authentication</h2>
+    <p>All API requests (except for registration and login) must include a valid JWT token in the <code>Authorization</code> header:</p>
+    <pre>
+Authorization: Bearer &lt;your_token_here&gt;
+    </pre>
+
+    <h2>Running the Application</h2>
+    <p>The application is Dockerized, so you can run it using Docker Compose:</p>
+    <pre>
+docker-compose up --build
+    </pre>
+
+    <p>Once the application is running, you can access this documentation at <code>http://127.0.0.1:8000/</code>.</p>
+
+    <h2>Running Unit Tests</h2>
+    <p>After deploying the application with Docker, you can run the unit tests using <code>pytest</code> to ensure everything is working as expected:</p>
+    <pre>
+docker-compose exec web pytest
+    </pre>
+    <p>This command runs the tests inside the Docker container.</p>
+</body>
+</html>

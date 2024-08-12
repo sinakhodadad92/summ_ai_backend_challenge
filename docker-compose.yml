@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./summ_ai_backend  
+      dockerfile: ./Dockerfile  
+    restart: "always"
+    container_name: web
+    stdin_open: true
+    tty: true
+    volumes:
+      - "./summ_ai_backend:/home/summ_ai_backend"
+      - ./staticfiles:/app/staticfiles
+    env_file:
+      - .env
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_DEBUG: ${DJANGO_DEBUG}
+      DJANGO_SUPERUSER_USERNAME: ${DJANGO_SUPERUSER_USERNAME}
+      DJANGO_SUPERUSER_EMAIL: ${DJANGO_SUPERUSER_EMAIL}
+      DJANGO_SUPERUSER_PASSWORD: ${DJANGO_SUPERUSER_PASSWORD}
+    ports:
+      - "8000:80"
