@@ -123,6 +123,11 @@ This project is a Django-based backend API that provides text translation servic
    - **Problem**: Translating HTML content while maintaining the structure of the document was challenging, especially when dealing with complex nested tags.
    - **Solution**: By using `BeautifulSoup`, we effectively identified and translated only the inner text of tags, ensuring that the overall HTML structure was preserved.
 
+2. **Finding a Suitable Translation API**:
+
+   - **Problem**: Due to the prior utilization of my free trial for the `Google Cloud Translation` API in other research projects, I was unable to leverage it for this initiative. Early attempts with the `Googletrans` API revealed significant challenges, notably with missing punctuation in translations, particularly when targeting Spanish (ES).
+   - **Solution**: Switched to the `DeepL` API, which provided better overall translation quality, though it still had some issues with capitalization and translating to certain languages like Arabic.
+
 ## Testing
 
 ### Running Tests
