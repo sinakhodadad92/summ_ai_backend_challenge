@@ -1,4 +1,7 @@
 #!/bin/sh
+echo "Making initial migrations for the translation app..."
+python manage.py makemigrations translation --noinput
+echo "Done."
 echo "Making init. migrations ... "
 python manage.py makemigrations --noinput
 echo "done"
